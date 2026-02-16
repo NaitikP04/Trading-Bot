@@ -24,6 +24,16 @@ class Settings(BaseSettings):
     GOOGLE_API_KEY: str | None = None
     GEMINI_MODEL: str = "gemini-1.5-flash" # or gemini-pro
 
+    # Data Settings
+    ACTIVE_ASSET_CANDIDATES: list[str] = [
+        "AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "TSLA", "META", "BRK.B", "LLY", "AVGO",
+        "V", "JPM", "XOM", "WMT", "UNH", "MA", "PG", "JNJ", "HD", "MRK",
+        "COST", "ABBV", "CVX", "CRM", "BAC", "PEP", "KO", "AMD", "NFLX", "ADBE",
+        "TMO", "WFC", "LIN", "MCD", "DIS", "CSCO", "ACN", "ABT", "DHR", "INTC",
+        "VZ", "CMCSA", "INTU", "AMGN", "PFE", "TXN", "PM", "IBM", "UBER", "NOW"
+    ]
+    ACTIVE_ASSET_FALLBACK: list[str] = ["SPY", "QQQ", "AAPL", "MSFT", "TSLA", "NVDA", "AMD", "GOOGL", "AMZN", "META"]
+
     # Discord Integration (Optional)
     DISCORD_WEBHOOK_URL: str | None = None
 
