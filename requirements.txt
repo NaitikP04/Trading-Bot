@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+alpaca-py
+pandas
+pandas-ta
+pydantic-settings
+python-dotenv
+google-generativeai
+pytz

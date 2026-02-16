@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: trading-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: ALPACA_PAPER
+        value: True
+      - key: ALPACA_API_KEY
+        sync: false
+      - key: ALPACA_SECRET_KEY
+        sync: false
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: DISCORD_WEBHOOK_URL
+        sync: false
