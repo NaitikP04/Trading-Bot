@@ -72,13 +72,7 @@ class AlpacaData(DataProvider):
             return 0.0
 
     def get_active_assets(self):
-        tickers = [
-            "AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "TSLA", "META", "BRK.B", "LLY", "AVGO",
-            "V", "JPM", "XOM", "WMT", "UNH", "MA", "PG", "JNJ", "HD", "MRK",
-            "COST", "ABBV", "CVX", "CRM", "BAC", "PEP", "KO", "AMD", "NFLX", "ADBE",
-            "TMO", "WFC", "LIN", "MCD", "DIS", "CSCO", "ACN", "ABT", "DHR", "INTC",
-            "VZ", "CMCSA", "INTU", "AMGN", "PFE", "TXN", "PM", "IBM", "UBER", "NOW"
-        ]
+        tickers = settings.ACTIVE_ASSET_CANDIDATES
 
         try:
             req = StockSnapshotRequest(symbol_or_symbols=tickers)
@@ -97,4 +91,4 @@ class AlpacaData(DataProvider):
 
         except Exception as e:
             logger.error(f"Error fetching active assets (snapshots): {e}")
-            return ["SPY", "QQQ", "AAPL", "MSFT", "TSLA", "NVDA", "AMD", "GOOGL", "AMZN", "META"]
+            return settings.ACTIVE_ASSET_FALLBACK
